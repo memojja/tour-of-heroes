@@ -1,6 +1,7 @@
 <h1> {{title}} </h1>
-{{hero.name}}
-{{hero.id}}
-<input type="text" [(ngModel)]="hero.name" placeholder="name">
- 
 
+<div *ngFor="let hero of heroes" (click)="onSelect(hero)">
+ {{hero.id}} {{hero.name}}
+</div>
+
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
