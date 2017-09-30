@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import {Hero} from './models/Hero';
+import {HeroService} from './services/hero.service';
+import { HEROES  } from './mock-heroes';
+import {Observable} from "rxjs/Observable";
 
 @Component({
   selector: 'app-root',
@@ -11,20 +14,22 @@ export class AppComponent {
   title = 'Tour of Heroes';
   selectedHero:Hero;
   hero:Hero;
-
-  heroes:Hero[]=[
-    {id:1,name:'Mehmet'},
-    {id:2,name:'Eda'},
-    {id:3,name:'Talha'},
-    {id:4,name:'Ugur'},
-    {id:5,name:'Cansu'},
-    {id:6,name:'Eyup'},
-    {id:7,name:'Hande'},
-   ];
-  
+  heroes:Hero[];
 
   onSelect(hero:Hero){
     this.selectedHero=hero;
   }
+
+  constructor(private heroService:HeroService){
+  }
+
+  getHeroes():void{
+    console.log(HEROES);
+     this.heroService.getHeroes().then( a => this.heroes=a);
+  }
   
+
+  ngOnInit():void{
+   this.getHeroes();
+  }
 }
