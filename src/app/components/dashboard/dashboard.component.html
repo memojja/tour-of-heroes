@@ -1,0 +1,7 @@
+<h3>Top Heroes</h3>
+
+  <div *ngFor="let hero of heroes" (click)="onSelect(hero)"  [routerLink]="['/detail', hero.id]">
+    {{hero.name}}
+  </div>
+
+  <app-hero-detail [hero]="selectedHero"></app-hero-detail>  

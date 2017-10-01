@@ -1,0 +1,16 @@
+
+<div *ngFor="let hero of heroes" (click)="onSelect(hero)">
+  {{hero.id}} {{hero.name}}
+ </div>
+
+ 
+ <div *ngIf="selectedHero">
+  <h2>
+    {{selectedHero.name | uppercase}} is my hero
+  </h2>
+  <button (click)="gotoDetail()">View Details</button>
+</div>
+
+ <!-- <app-hero-detail [hero]="selectedHero"></app-hero-detail> -->
+
+

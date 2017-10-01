@@ -1,7 +1,10 @@
 <h1> {{title}} </h1>
 
-<div *ngFor="let hero of heroes" (click)="onSelect(hero)">
- {{hero.id}} {{hero.name}}
-</div>
+<nav>
+    <a routerLink="/dashboard">Dashboard</a>
+    <a routerLink="/heroes">Heroes</a>
+    <a routerLink="/">Home</a>
+</nav>
+  
 
-<app-hero-detail [hero]="selectedHero"></app-hero-detail>
+<router-outlet></router-outlet>

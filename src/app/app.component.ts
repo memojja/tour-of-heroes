@@ -12,24 +12,13 @@ import {Observable} from "rxjs/Observable";
 
 export class AppComponent {
   title = 'Tour of Heroes';
-  selectedHero:Hero;
-  hero:Hero;
-  heroes:Hero[];
-
-  onSelect(hero:Hero){
-    this.selectedHero=hero;
-  }
-
-  constructor(private heroService:HeroService){
-  }
-
-  getHeroes():void{
-    console.log(HEROES);
-     this.heroService.getHeroes().then( a => this.heroes=a);
-  }
+ 
   
 
+  constructor(){
+  }
+
+  
   ngOnInit():void{
-   this.getHeroes();
   }
 }
